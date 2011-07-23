@@ -51,7 +51,7 @@ package org.robotlegs.base
 			super(contextView, injector);
 
 			// mappings - if you can do it with fewer dictionaries you get a prize
-			this.mappedPackages = new Array();
+			this.mappedPackages = [];
 			this.mappedTypes = new Dictionary(false);
 			this.injectedViews = new Dictionary(true);
 		}
@@ -185,7 +185,7 @@ package org.robotlegs.base
 				var className:String = getQualifiedClassName(target);
 				for (var i:int = 0; i < len; i++)
 				{
-					var packageName:String = mappedPackages[i];
+					var packageName:String = mappedPackages[int(i)];
 					if (className.indexOf(packageName) == 0)
 					{
 						injectInto(target);

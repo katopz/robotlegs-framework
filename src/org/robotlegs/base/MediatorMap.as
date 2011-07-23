@@ -287,18 +287,21 @@ package org.robotlegs.base
 				config ||= mappingConfigByViewClassName[viewClassName];
 				if (config)
 				{
-					for each (var claxx:Class in config.typedViewClasses) 
-					{
-						injector.mapValue(claxx, viewComponent);
-					}
+					var config_typedViewClasses:Array = config.typedViewClasses;
+					var clazz:Class;
+					
+					for each (clazz in config_typedViewClasses) 
+						injector.mapValue(clazz, viewComponent);
+					
 					mediator = injector.instantiate(config.mediatorClass);
-					for each (var clazz:Class in config.typedViewClasses) 
-					{
+					
+					for each (clazz in config_typedViewClasses) 
 						injector.unmap(clazz);
-					}
+					
 					registerMediator(viewComponent, mediator);
 				}
 			}
+			
 			return mediator;			
 		}		
 		
@@ -314,7 +317,7 @@ package org.robotlegs.base
 				if (!hasMediatorsMarkedForRemoval)
 				{
 					hasMediatorsMarkedForRemoval = true;
-					enterFrameDispatcher.addEventListener(Event.ENTER_FRAME, removeMediatorLater);
+					enterFrameDispatcher.addEventListener(Event.ENTER_FRAME, removeMediatorLater, false, 0, true);
 				}
 			}
 		}

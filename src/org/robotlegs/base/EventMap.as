@@ -43,7 +43,7 @@ package org.robotlegs.base
 		 */
 		public function EventMap(eventDispatcher:IEventDispatcher)
 		{
-			listeners = new Array();
+			listeners = [];
 			this.eventDispatcher = eventDispatcher;
 		}
 		
@@ -91,7 +91,7 @@ package org.robotlegs.base
 			var i:int = listeners.length;
 			while (i--)
 			{
-				params = listeners[i];
+				params = listeners[int(i)];
 				if (params.dispatcher == dispatcher
 					&& params.type == type
 					&& params.listener == listener
@@ -135,7 +135,7 @@ package org.robotlegs.base
 			var i:int = listeners.length;
 			while (i--)
 			{
-				params = listeners[i];
+				params = listeners[int(i)];
 				if (params.dispatcher == dispatcher
 					&& params.type == type
 					&& params.listener == listener

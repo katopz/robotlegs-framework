@@ -42,10 +42,9 @@ package org.robotlegs.adapters
 		{
 			if (xmlConfig)
 			{
-				for each (var typeNode:XML in XML_CONFIG.children())
-				{
+				var XML_CONFIG_children:XMLList = XML_CONFIG.children(); 
+				for each (var typeNode:XML in XML_CONFIG_children)
 					xmlConfig.appendChild(typeNode);
-				}
 			}
 			super(xmlConfig);
 		}

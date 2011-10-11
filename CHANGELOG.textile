@@ -1,5 +1,23 @@
 h2. Robotlegs Framework Changelog:
 
+h3. v1.5.1
+
+Fixed: https://github.com/robotlegs/robotlegs-framework/issues/24
+
+h3. v1.5.0
+
+*CommandMap Abstract Event Injection*
+For event-triggered commands the event is now also mapped to "Event". For example:
+
+[Inject] public var abstractEvent:Event;
+[Inject] public var concreteEvent:SomeEvent;
+
+*MVCS Mediator*
+Added syntactic sugar methods removeViewListener() and removeContextListener()
+
+*SwiftSuspenders*
+Updated SwiftSuspenders to v1.6.0
+
 h3. v1.4.0
 
 *ViewMap & MediatorMap*
